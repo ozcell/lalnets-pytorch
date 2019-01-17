@@ -35,8 +35,8 @@ class GAR(object):
             V_sum = V.sum(dim=[1,2])
             V_trace = V.diagonal(dim1=1, dim2=2).sum(-1)
 
-            affinity += ((N_sum - N_trace) / ((k-1) * N_trace + 1e-8)).sum()
-            balance += ((V_sum - V_trace) / ((k-1) * V_trace + 1e-8)).sum()
+            affinity += ((N_sum - N_trace) / ((self.k-1) * N_trace + 1e-8)).sum()
+            balance += ((V_sum - V_trace) / ((self.k-1) * V_trace + 1e-8)).sum()
 
         affinity /= self.n_p
         balance /= self.n_p
