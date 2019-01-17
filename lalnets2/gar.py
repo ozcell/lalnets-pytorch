@@ -36,3 +36,9 @@ def GAR(Z, k, n_p, c_alpha=1, c_beta=1, c_F=1, per_parent=True, symmetric=True):
     reg = c_alpha * affinity + c_beta * (len(Bs) - balance) + c_F * frob
 
     return reg
+
+def acolPool(k, n_parent, dtype=K.float32, device='cuda'):
+    a = K.eye(n_parent, dtype=dtype, device=device) # np X np 
+    for i in range(1, k):
+        a = K.cat((a, K.eye(n_parent, dtype=dtype, device=device)),dim=0)
+    return a

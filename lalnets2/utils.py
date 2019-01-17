@@ -27,3 +27,6 @@ def correct_labels(ground_truth, est):
             corrested_est[est==cluster] = true_label
 
     return corrested_est
+
+def to_numpy(x):
+    return x.detach().cpu().numpy()
