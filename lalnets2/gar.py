@@ -15,7 +15,7 @@ class GAR(object):
         self.c = [c_alpha, c_beta, c_F]
         self.sym = symmetric
         
-    def forward(self, Z):
+    def __call__(self, Z):
         Z = Z.view(-1, self.k, self.n_p)
         Bs = [F.relu(Z)]
         if self.sym:
